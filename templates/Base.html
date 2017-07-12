@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cover.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <title>Python Project</title>
+</head>
+<header>
+<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand"><a href="/">Python Project</a></h3>
+						<nav>
+							{% if session.logged_in%}
+							<ul class="nav masthead-nav">
+								{% if session['Prop'] == 'Client' %}
+								<li><a href="/logout">Logout</a></li>
+								<li><a href="/account">Account</a></li>
+								<li><a href="/prov">Call History</a></li>
+								<li><a href="/pay">Pay</a></li>
+								{% elif session['Prop'] == 'Seller' %}
+								<li><a href="/logout">Logout</a></li>
+								<li><a href="/addcl">Add Client</a></li>
+								<li><a href="/ser">Search Client</a></li>
+								<li><a href="/Change">Change Program</a></li>
+								{% else %}
+								<li><a href="/logout">Logout</a></li>
+								<li><a href="/addpr">Create Program</a></li>
+								<li><a href="/addcl">Add Client</a></li>
+								<li><a href="/addsel">Add Seller</a></li>
+								{% endif %}
+							</ul>
+							{% else %}
+							<ul class="nav masthead-nav">
+							<li><a href="/login">Login</a></li>
+							</ul>
+							{% endif %}
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<body>
+{%block content%}{%endblock%}
+</body>
+</html>

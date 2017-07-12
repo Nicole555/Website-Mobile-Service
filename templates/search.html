@@ -1,0 +1,39 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Seller' %}
+<p class="lead" style="color:#ff0000;"><strong>This site is for Sellers ONLY!</strong></p>
+{%else%}
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">			
+				<div class="table-responsive">
+					<h2>You searched for this client! </h2>					
+					<div id="content">
+						<table class="table table-bordered" class="table">	
+							<thead>
+								<td>Name</td>
+								<td>Surname</td>
+								<td>Address</td>
+								<td>AFM</td>
+								<td>PhoneNumber</td>
+								<td>Program's Name</td>
+								<td>Price</td>
+								
+							</thead> 						
+							<tr>
+								<td>{{Name}}</td>
+								<td>{{Surname}}</td>
+								<td>{{Address}}</td>
+								<td>{{AFM}}</td>
+								<td>{{PhoneNumber}}</td>
+								<td>{{Program}}</td>
+								<td>{{Price}}</td>
+							</tr> 												
+						</table>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+{%endif%}
+{% endblock %} 

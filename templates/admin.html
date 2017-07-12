@@ -1,0 +1,18 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Admin' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Administrators ONLY!</strong></p>
+{%else%}
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="inner cover">
+					<h1 class="cover-heading">Welcome!</h1>
+					<p class="lead">You have been connect as <strong>Admin</strong>!</p>
+					<p class="lead" style="color:#40bf77;">{{ msg }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{%endif%}
+{% endblock %} 

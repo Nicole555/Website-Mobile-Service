@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Seller' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Sellers ONLY!</strong></p>
+{%else%}
+	<p class="lead">Input the name of client!</p>
+	<div class="container">
+		<form role="form" action = "{{ url_for('search') }}" method = "POST">
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "afm" placeholder="Client's AFM" pattern= "[0-9]*" required>
+			</div>
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+		</form>
+		<p class="lead" style="color:#ff0000;">{{msg}}</p>
+	</div>
+{%endif%}
+{% endblock %} 

@@ -1,0 +1,29 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Client' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Clients ONLY!</strong></p>
+{%else%}
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="inner cover">
+					{% if session.paid %}
+					<p class="lead" style="color:#40bf77;">Your bill is paid!</p>
+					{%else%}
+					<p class="lead">Pay your bill by entering the right amount of money!</p>
+					<div class="container">
+						<p class="lead">Your bill is: {{Price}} €</p>
+						<form role="form" action = "{{ url_for('payb') }}" method = "POST">
+							<div class="form-group">
+							<input type="text" class="form-control" id="usr" name = "Amount" placeholder="Amount" pattern= "[0-9]*" required>
+							</div>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+						</form>
+					</div>
+					{%endif%}
+				</div>
+			</div>
+		</div>
+	</div>
+{%endif%}
+{% endblock %} 

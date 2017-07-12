@@ -1,0 +1,26 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Client' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Clients ONLY!</strong></p>
+{%else%}
+<div class="cantable">
+	<div class="table-responsive">
+	<h2>Call Details </h2>
+		<table class="table table-bordered" class="table">
+			<thead>
+			<td>Date</td>
+			<td>Time</td>
+			<td>Phone you called</td>
+			</thead> 
+			{% for program in programs %}
+			<tr>
+			<td>{{program.Date}}</td>
+			<td>{{program.Time}}</td>
+			<td>{{program.FriendPhone}}</td>
+			</tr>  
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{%endif%}
+{% endblock %} 

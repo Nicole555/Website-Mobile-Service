@@ -1,0 +1,23 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Client' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Clients ONLY!</strong></p>
+{%else%}
+<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="inner cover">
+					{% if session['tag'] %}
+					<h1 class="cover-heading" >{{name}} {{surname}}</h1>
+					<p class="lead">You are living in <strong> {{address}} </strong> and your bill is:<strong> {{ price }} € </strong></p>
+					{% else %}
+					<h1 class="cover-heading">Welcome!</h1>
+					<p class="lead">You have been connect as <strong>Client</strong>!</p>
+					{% endif %}
+					<p class="lead" style="color:#ff0000;" >{{mesg}}</p>
+				</div>
+			</div>
+		</div>
+</div>
+{%endif%}
+{% endblock %} 

@@ -1,0 +1,38 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] == 'Client' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Sellers ONLY!</strong></p>
+{%else%}
+<p class="lead">To change client's program, please enter the AFM of client!</p>
+	<div class="container">
+		<form role="form" action = "{{ url_for('chprog') }}" method = "POST">
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "AFM" placeholder="Client's AFM" required>
+			</div>
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "Programid" placeholder="New Program's ID" required>
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+		</form>
+	</div>
+<div class="cantable">
+	<div class="table-responsive">
+	<h2>Available Programs </h2>
+		<table class="table table-bordered" class="table">
+			<thead>
+			<td>ProgramID</td>
+			<td>Description</td>
+			<td>Price</td>
+			</thead> 
+			{% for rows in rows %}
+			<tr>
+			<td>{{rows[0]}}</td>
+			<td>{{rows[1]}}</td>
+			<td>{{rows[2]}}</td>
+			</tr>  
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{%endif%}
+{% endblock %} 

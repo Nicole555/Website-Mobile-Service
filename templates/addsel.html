@@ -1,0 +1,28 @@
+{% extends "Base.html" %}
+{% block content %}
+{% if session['Prop'] != 'Admin' %}
+<p class="lead" style="color:#ff0000;"><strong>This page is for Administrators ONLY!</strong></p>
+{%else%}
+	<p class="lead">To add a new <strong>Seller</strong>, please fill the form below!</p>
+	<div class="container">
+		<form role="form" action = "{{ url_for('adder1') }}" method = "POST">
+			<div class="form-group">
+			<input type="email" class="form-control" id="usr" name = "Email" placeholder="Email" required>
+			</div>
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "Username" placeholder="Username" required>
+			</div>
+			<div class="form-group">
+			<input type="password" class="form-control" id="usr" name = "Password" placeholder="Password" required>
+			</div>
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "CompanyName" placeholder="CompanyName" required>
+			</div>
+			<div class="form-group">
+			<input type="text" class="form-control" id="usr" name = "Address" placeholder="Address" required>
+			</div>
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+		</form>
+	</div>
+{%endif%}
+{% endblock %} 

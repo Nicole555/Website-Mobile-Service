@@ -1,0 +1,14 @@
+{% extends "Base.html" %}
+{% block content %}
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="inner cover">
+					<h1 class="cover-heading">Welcome to Python Project!</h1>
+					<p class="lead">An application for managing mobile data and paying bills!<br> {% if session.logged_in %}{% else %}Please <strong>login</strong> to continue!</p>{% endif %}
+					<p class="lead" style="color:#40bf77;">{{ msg }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %} 
